@@ -2,6 +2,16 @@
 
 This is a Flutter application that allows you to read news from The New York Times. It is built using Flutter and utilizes various libraries and tools for state management, API integration, routing, and more.
 
+
+## Project Demo
+
+Demo app at the following link:
+
+[Demo App](https://github.com/fahad0100/The-New-York-Times-App/assets/41303127/529b5b8a-bf55-4bfe-b651-65d2bc3b3e2b)
+
+Please feel free to explore the app and provide any feedback or suggestions. I appreciate your time and consideration.
+
+
 ## How to Use
 
 ### Step 1:
@@ -39,7 +49,7 @@ flutter run
 - Dio
 - flutter_bloc
 - get_it
-- Provider (State Management)
+- Bloc (State Management)
 - url_launcher
 - cached_network_image
 - animated_segment
