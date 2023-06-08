@@ -1,5 +1,5 @@
 import 'package:assessment2023/main.dart';
-import 'package:assessment2023/data/models/ResponseNews.dart';
+import 'package:assessment2023/data/models/response_news.dart';
 import 'package:assessment2023/data/services/api/api_server.dart';
 import 'package:dio/dio.dart';
 

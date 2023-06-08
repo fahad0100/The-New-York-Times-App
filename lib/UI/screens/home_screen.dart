@@ -1,8 +1,8 @@
-import 'package:assessment2023/Routes/AppRoute.dart';
-import 'package:assessment2023/UI/Components/News/NewsWidget.dart';
-import 'package:assessment2023/UI/Components/TapWidgets/MenuDrop.dart';
-import 'package:assessment2023/UI/Components/TapWidgets/SegmentedTap.dart';
-import 'package:assessment2023/UI/Components/Text/Text_label_widget.dart';
+import 'package:assessment2023/Routes/app_route.dart';
+import 'package:assessment2023/UI/components/News/NewsWidget.dart';
+import 'package:assessment2023/UI/components/tapWidgets/MenuDrop.dart';
+import 'package:assessment2023/UI/components/tapWidgets/SegmentedTap.dart';
+import 'package:assessment2023/UI/components/Text/Text_label_widget.dart';
 import 'package:assessment2023/blocs/news/news_bloc.dart';
 import 'package:assessment2023/blocs/themeBloc/theme_bloc.dart';
 import 'package:assessment2023/data/services/api/api_server.dart';

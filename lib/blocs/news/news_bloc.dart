@@ -1,8 +1,8 @@
 import 'dart:async';
 
-import 'package:assessment2023/data/models/News.dart';
+import 'package:assessment2023/data/models/news.dart';
 import 'package:assessment2023/data/repositories/news_repository.dart';
-import 'package:assessment2023/data/services/api/Exception.dart';
+import 'package:assessment2023/data/services/api/exception.dart';
 import 'package:assessment2023/data/services/api/api_server.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

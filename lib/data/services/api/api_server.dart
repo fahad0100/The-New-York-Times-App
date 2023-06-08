@@ -1,5 +1,5 @@
-import 'package:assessment2023/data/models/ResponseNews.dart';
-import 'package:assessment2023/data/services/api/Exception.dart';
+import 'package:assessment2023/data/models/response_news.dart';
+import 'package:assessment2023/data/services/api/exception.dart';
 import 'package:assessment2023/main.dart';
 import 'package:assessment2023/utils/constants/api_constants.dart';
 import 'package:dio/dio.dart';
@@ -8,7 +8,7 @@ class ApiServer {
   final dio = Dio();
 
   getNewsFromServer(
-      {required Period periodState, required PathApi path}) async {
+      {required Period periodState, required PathApi path,}) async {
     try {
       final locator = getIt.get<ApiConstants>();
       String getPeriod = locator.period1day;

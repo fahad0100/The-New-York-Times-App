@@ -1,4 +1,4 @@
-import 'package:assessment2023/UI/Components/Text/Text_label_widget.dart';
+import 'package:assessment2023/UI/components/Text/Text_label_widget.dart';
 import 'package:assessment2023/utils/constants/padding_constants.dart';
 import 'package:flutter/material.dart';
 

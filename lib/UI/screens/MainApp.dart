@@ -1,6 +1,5 @@
-import 'package:assessment2023/Routes/AppRoute.dart';
+import 'package:assessment2023/Routes/app_route.dart';
 import 'package:assessment2023/blocs/news/news_bloc.dart';
-import 'package:assessment2023/UI/screens/home_screen.dart';
 import 'package:assessment2023/blocs/themeBloc/theme_bloc.dart';
 import 'package:assessment2023/utils/CustomTheme.dart';
 import 'package:flutter/material.dart';
@@ -26,7 +25,7 @@ class MainApp extends StatelessWidget {
           theme: state is DarkTheme
               ? CustomTheme.darkTheme
               : CustomTheme.lightTheme,
-          home: HomeScreen(),
+          initialRoute: AppRoute.home,
           routes: AppPages.routes,
           debugShowCheckedModeBanner: false,
         );

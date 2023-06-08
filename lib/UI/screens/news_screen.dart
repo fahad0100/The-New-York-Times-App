@@ -1,7 +1,7 @@
-import 'package:assessment2023/UI/Components/Images/dispaly_Image_widget.dart';
-import 'package:assessment2023/UI/Components/Text/Text_label_widget.dart';
-import 'package:assessment2023/UI/Components/tags_widget/FactsWidget.dart';
-import 'package:assessment2023/data/models/News.dart';
+import 'package:assessment2023/UI/components/Images/dispaly_Image_widget.dart';
+import 'package:assessment2023/UI/components/Text/Text_label_widget.dart';
+import 'package:assessment2023/UI/components/tagsWidget/FactsWidget.dart';
+import 'package:assessment2023/data/models/news.dart';
 import 'package:assessment2023/utils/Method/OpenBrowser.dart';
 import 'package:assessment2023/utils/constants/public_variables.dart';
 import 'package:assessment2023/utils/extensions/SizeScreen.dart';

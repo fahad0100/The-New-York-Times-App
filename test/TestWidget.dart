@@ -1,5 +1,5 @@
-import 'package:assessment2023/UI/Components/TapWidgets/MenuDrop.dart';
-import 'package:assessment2023/UI/Components/TapWidgets/SegmentedTap.dart';
+import 'package:assessment2023/UI/components/tapWidgets/MenuDrop.dart';
+import 'package:assessment2023/UI/components/tapWidgets/SegmentedTap.dart';
 import 'package:assessment2023/data/services/api/api_server.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -9,7 +9,6 @@ void main() {
     testWidgets(
       'SegmentedTap displays correct segments',
       (WidgetTester tester) async {
-        // Build SegmentedTap with the desired selected period
         Period selectedPeriod = Period.day7;
         await tester.pumpWidget(MaterialApp(
           home: Scaffold(
@@ -34,7 +33,6 @@ void main() {
         expect(selectedPeriod, equals(Period.day30));
       },
     );
-    //-----
     testWidgets('Test MenuDrop widget', (WidgetTester tester) async {
       String value = 'Emailed';
 
@@ -51,14 +49,12 @@ void main() {
         ),
       );
 
-      //--------
       expect(find.text('Emailed'), findsOneWidget);
       await tester.tap(find.text('Emailed'));
       await tester.pump();
       await tester.tap(find.text('Viewed'));
       await tester.pump();
       expect(value, equals("Viewed"));
-      //---Step 2
       expect(find.text('Emailed'), findsOneWidget);
       await tester.tap(find.text('Emailed'));
       await tester.pump();

@@ -4,9 +4,9 @@ mixin ApiPath {
   static const String _sharedPathEmailed = "/svc/mostpopular/v2/emailed";
   static const String _sharedPathShared = "/svc/mostpopular/v2/shared";
   static const String _sharedPathViewed = "/svc/mostpopular/v2/viewed";
-  static const String _emailedPath1day = "/1.json";
-  static const String _emailedPath7days = "/7.json";
-  static const String _emailedPath30days = "/30.json";
+  static const String _period1day = "/1.json";
+  static const String _period7days = "/7.json";
+  static const String _period30days = "/30.json";
 
   String get pathEmailed {
     return _sharedPathEmailed;
@@ -21,15 +21,15 @@ mixin ApiPath {
   }
 
   String get period1day {
-    return _emailedPath1day;
+    return _period1day;
   }
 
   String get period7days {
-    return _emailedPath7days;
+    return _period7days;
   }
 
   String get period30days {
-    return _emailedPath30days;
+    return _period30days;
   }
 }
 
