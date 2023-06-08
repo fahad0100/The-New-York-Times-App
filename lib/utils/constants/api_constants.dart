@@ -35,7 +35,7 @@ mixin ApiPath {
 
 mixin class ApiBase {
   static const String _api = "https://api.nytimes.com";
-  static const String _key = "i4AFyxF7hccijAuPbHiJnZcD1Fkpyfjv";
+  static const String _key = "5Hf0g0PWcrXNrBGjFCj0ugnR4z8LNGey";
   String get baseURL {
     return _api;
   }
