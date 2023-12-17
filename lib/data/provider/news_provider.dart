@@ -55,7 +55,8 @@ class NewsProvider {
 
       return newsList;
     } on DioException catch (error) {
-      throw FormatException(error.response?.data["fault"]["faultstring"]);
+      print(error.response?.statusMessage);
+      throw FormatException(error.response!.statusMessage!);
     } catch (error) {
       print(error);
       throw FormatException("There is an error that is not defined");

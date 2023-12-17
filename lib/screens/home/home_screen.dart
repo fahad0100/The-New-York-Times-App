@@ -52,7 +52,7 @@ class HomeScreen extends StatelessWidget {
                 children: [
                   SegmentLabel(
                       currentIndex: blocNews.selectedProvides,
-                      items: ["Emailed", "Shearing", "Email"],
+                      items: ["Emailed", "Shearing", "Viewed"],
                       onTap: (index) {
                         blocNews.add(ChangeProvidesEvent(index: index));
                       }),
@@ -109,7 +109,7 @@ class HomeScreen extends StatelessWidget {
               } else if (state is ErrorReloadState) {
                 return SizedBox(
                   height: context.getHeight(divide: 2),
-                  child: Center(child: Text(state.error)),
+                  child: Center(child: TextLabel(title: state.error)),
                 );
               }
               return Center(
