@@ -1,6 +1,5 @@
 import 'dart:async';
 
-import 'package:assessment2023/Bloc/news/news_bloc.dart';
 import 'package:assessment2023/screens/home/home_screen.dart';
 import 'package:assessment2023/screens/Bookmark_screen.dart';
 import 'package:bloc/bloc.dart';

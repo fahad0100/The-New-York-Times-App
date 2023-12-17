@@ -7,9 +7,7 @@ This is a Flutter application that allows you to read news from The New York Tim
 
 Demo app at the following link:
 
-[Demo App](https://github.com/fahad0100/The-New-York-Times-App/assets/41303127/529b5b8a-bf55-4bfe-b651-65d2bc3b3e2b)
-
-Please feel free to explore the app and provide any feedback or suggestions. I appreciate your time and consideration.
+[Demo App](https://github.com/fahad0100/The-New-York-Times-App/assets/41303127/63ad6d13-70c9-4b38-b799-dba89ee9a06b)
 
 
 ## How to Use
@@ -17,16 +15,34 @@ Please feel free to explore the app and provide any feedback or suggestions. I a
 ### Step 1:
 Download or clone this repo by using the link below:
 ```
-https://github.com/fahad0100/The-New-York-Times-App.git
+get clone https://github.com/fahad0100/The-New-York-Times-App.git
 ```
 
 ### Step 2:
-Go to the project root and execute the following command in the console to get the required dependencies:
+Go to the folder name The-New-York-Times-App
+```
+fcd The-New-York-Times-App/
+```
+
+### Step 3:
+in the project root add .env file:
+```
+.env
+```
+
+### Step 4:
+add inside .env your api key as
+```
+key = "api-key"
+```
+
+### Step 5:
+execute the following command in the console to get the required dependencies:
 ```
 flutter pub get
 ```
 
-### Step 3:
+### Step 6:
 Run the application using the following command:
 ```
 flutter run
@@ -35,13 +51,11 @@ flutter run
 ## Features
 
 - Nice view
-- Routing
 - Connected with API
 - Bloc state management
 - Dependency Injection
 - Dark Theme Support
 - Use browser for reading news
-- Dart code metrics (best practices for code)
 - Unit testing
 
 ## Libraries & Tools Used
@@ -51,10 +65,6 @@ flutter run
 - get_it
 - Bloc (State Management)
 - url_launcher
-- cached_network_image
-- animated_segment
-- google_fonts
-- dart_code_metrics
 
 ## Folder Structure
 
@@ -63,10 +73,8 @@ Here is the core folder structure which Flutter provides:
 ```
 flutter-app/
 |- android/
-|- build/
 |- ios/
 |- lib/
-|- analysis_options.yaml => configuration for dart_code_metrics, make changes here
 |- test/
 ```
 
@@ -74,243 +82,221 @@ Here is the folder structure used in this project:
 
 ```
 lib/
-|-- Bloc/
+|-- blocs/
+    |-- bookmark/
+        |- book_mark_bloc.dart
+        |- book_mark_event.dart
+        |- book_mark_state.dart
+    |-- nav_bloc/
+        |- nav_bloc_bloc.dart
+        |- nav_bloc_event.dart
+        |- nav_bloc_state.dart
     |-- news/
         |- news_bloc.dart
         |- news_event.dart
         |- news_state.dart
-    |-- themebloc/
-        |- theme_bloc.dart
-        |- theme_event.dart
-        |- theme_state.dart
+    |-- ThemesBloc/
+        |- themes_bloc.dart
+        |- themes_event.dart
+        |- themes_state.dart
 |-- data/
     |-- models/
-        |- news.dart
-        |- response_news.dart
-    |-- repositories/
-        |- news_repository.dart
-    |-- services/
-        |- api_server.dart
-        |- exception.dart
-|-- Routes/
-    |- app_route.dart
-|-- ui/
-    |-- components/
-        |-- Images/
-            |- display_image_widget.dart
-        |-- news/
-            |- news_widget.dart
-        |-- tagsWidget/
-            |- facts_widget.dart
-        |-- tapWidgets/
-            |- menu_drop.dart
-            |- segmented_tap.dart
-        |-- text/
-            |- text_label_widget.dart
+        |- news_model.dart
+    |-- provider/
+        |- ApiConsent.dart
+        |- news_provider.dart
+|-- screens/
+    |-- display_news/
+        |-- widgets/
+            |- ByAuthorWidget.dart
+        |- display_news.dart
+    |-- home/
+        |-- widgets/
+            |- card_news.dart
+            |- date_widget.dart
+            |- segment_label.dart
+            |- text_label.dart
+            |- wrap_DesFacet_widget.dart
+        |- home_screen.dart
+    |-- widgets/
+        |-- widgets/
+            |- Button_custom.dart
+            |- image_display.dart
+            |- switch_mod_widget.dart
+        |- bookmark_screen.dart
+        |- nav_screen.dart
 |-- utils/
-    |- home_screen.dart
-    |- main_app.dart
-    |- news_screen.dart
-|-- utils/
-    |-- constants/
-        |- api_constants.dart
-        |- padding_constants.dart
-        |- public_variables.dart
-        |- spacing_constants.dart
     |-- extensions/
-        |- move_to_page.dart
-        |- size_screen.dart
-    |-- method/
-        |- open_browser.dart
-    |- custom_theme.dart
+        |- move_view.dart
+        |- screen_size.dart
+    |-- helper/
+        |- add_to_bookmark.dart
+        |- check_dark_mode.dart
+        |- check_if_in_bookmark.dart
+        |- layout.dart
+        |- openURL.dart
+        |- remove_from_bookmark.dart
+        |- setup_get_It.dart
+        |- ThemeHelper.dart
 |- main.dart
 ```
 
 Now, let's dive into the `lib` folder, which contains the main code for the application.
 
-- `constants`: All the application-level constants are defined in this directory within their respective files. This directory contains constants for `theme`, `dimensions`, `API endpoints`, `preferences`, and `strings`.
-
 - `data`: Contains the data layer of the project, including models, repositories, and API services.
 
-- `ui`: Contains all the user interface (UI) of the project, with a subdirectory for each screen.
-
-- `Routes`: This file contains all the routes for the project.
+- `screens`: Contains all the user interface (UI) of the project, with a subdirectory for each screen.
 
 - `Bloc`: Contains the state management using the `flutter_bloc` library.
 
 - `utils`: Contains utility/common functions of the application.
 
-## Routes Code
 
-This file contains all the routes for your application.
+
+## Extensions for Navigator
 
 ```dart
-abstract class AppRoute {
-  AppRoute._();
-  static const home = _Paths.home;
-  static const newsScreen = _Paths.newsScreen;
+extension Nav on BuildContext {
+  push({required String nameScreen, Object? arguments}) {
+    return Navigator.pushNamed(this, nameScreen, arguments: arguments);
+  }
+
+  pushAndRemoveUntil({required String nameScreen, Object? arguments}) {
+    return Navigator.pushNamedAndRemoveUntil(
+        this, nameScreen, ModalRoute.withName('/'),
+        arguments: arguments);
+  }
 }
 
-class AppPages {
-  AppPages
 
-._();
 
-  static Map<String, Widget Function(BuildContext)> routes = {
-    AppRoute.home: (context) => const HomeScreen(),
-    AppRoute.newsScreen: (context) => const NewsScreen(),
-  };
-}
 
-abstract class _Paths {
-  _Paths._();
-  static const home = '/home';
-  static const newsScreen = '/newsScreen';
-}
 ```
 
-Extensions for Navigator
+## Extension for getting screen size
 
 ```dart
-extension MoveToPage on BuildContext {
-  push({required String nameRoute, arguments}) {
-    Navigator.of(this).pushNamed(nameRoute, arguments: arguments);
+extension ScreenSize on BuildContext {
+double  getWidth({double? divide = 1}) {
+    return MediaQuery.of(this).size.width / divide!;
+  }
+
+ double getHeight({double? divide = 1}) {
+    return MediaQuery.of(this).size.height / divide!;
   }
 }
 ```
 
-Extension for getting screen size
 
+
+## News provider
 ```dart
-extension SizeScreen on BuildContext {
-  screenSize() {
-    return MediaQuery.of(this).size;
-  }
 
-  screenHeight() {
-    return MediaQuery.of(this).size.height;
-  }
+class NewsProvider {
+  Future<List<NewsModel>> readData(
+      {ProvidesEnum provide = ProvidesEnum.emailed,
+      PeriodEnum period = PeriodEnum.thirtyDays}) async {
+    final dio = Dio();
+    final ApiConsent consentApi = ApiConsent();
+    late String endPointProvide;
+    late String endPointPeriod;
+    switch (provide) {
+      case ProvidesEnum.emailed:
+        endPointProvide = consentApi.emailed;
+        break;
+      case ProvidesEnum.shared:
+        endPointProvide = consentApi.shared;
+        break;
+      case ProvidesEnum.viewed:
+        endPointProvide = consentApi.viewed;
 
-  screenSizeDividedBy({required double divideNumber}) {
-    final sizeScreen = MediaQuery.of(this).size;
+        break;
+      default:
+        endPointProvide = consentApi.emailed;
+    }
+    switch (period) {
+      case PeriodEnum.oneDay:
+        endPointPeriod = consentApi.oneDay;
+        break;
+      case PeriodEnum.sevenDays:
+        endPointPeriod = consentApi.sevenDays;
+        break;
+      case PeriodEnum.thirtyDays:
+        endPointPeriod = consentApi.thirtyDays;
 
-    return Size(
-      sizeScreen.width / divideNumber,
-      sizeScreen.width / divideNumber,
-    );
-  }
+        break;
+      default:
+        endPointProvide = consentApi.thirtyDays;
+    }
 
-  screenWidth() {
-    return MediaQuery.of(this).size.width;
-  }
-}
-```
+    try {
+      await dotenv.load(fileName: ".env");
+      final response = await dio.get(
+          '${consentApi.api}$endPointProvide$endPointPeriod?api-key=${dotenv.env['key']}');
+      List<NewsModel> newsList = (response.data["results"] as List)
+          .map((e) => NewsModel.fromJson(e))
+          .toList();
 
-Class for API (Path, base URL, and period)
-
-```dart
-class ApiConstants extends ApiBase with ApiPath {}
-
-mixin ApiPath {
-  static const String _sharedPathEmailed = "/svc/mostpopular/v2/emailed";
-  static const String _sharedPathShared = "/svc/mostpopular/v2/shared";
-  static const String _sharedPathViewed = "/svc/mostpopular/v2/viewed";
-  static const String _period1day = "/1.json";
-  static const String _period7days = "/7.json";
-  static const String _period30days = "/30.json";
-
-  String get pathEmailed {
-    return _sharedPathEmailed;
-  }
-
-  String get pathShared {
-    return _sharedPathShared;
-  }
-
-  String get pathViewed {
-    return _sharedPathViewed;
-  }
-
-  String get period1day {
-    return _period1day;
-  }
-
-  String get period7days {
-    return _period7days;
-  }
-
-  String get period30days {
-    return _period30days;
+      return newsList;
+    } on DioException catch (error) {
+      print(error.response?.statusMessage);
+      throw FormatException(error.response!.statusMessage!);
+    } catch (error) {
+      print(error);
+      throw FormatException("There is an error that is not defined");
+    }
   }
 }
 
-mixin ApiBase {
-  static const String _api = "https://api.nytimes.com";
-  static const String _key = "i4AFyxF7hccijAuPbHiJnZcD1Fkpyfjv";
-
-  String get baseURL {
-    return _api;
-  }
-
-  String get key {
-    return _key;
-  }
-}
-```
-
-News Repository
-
-```dart
-class NewsRepository {
-  final dio = Dio();
-  Future<ResponseNews> get1day({required PathApi path}) async {
-    return await getIt
-        .get<ApiServer>()
-        .getNewsFromServer(periodState: Period.day1, path: path);
-  }
-
-  Future<ResponseNews> get7days({required PathApi path}) async {
-    return await getIt
-        .get<ApiServer>()
-        .getNewsFromServer(periodState: Period.day7, path: path);
-  }
-
-  Future<ResponseNews> get30Days({required PathApi path}) async {
-    return await getIt
-        .get<ApiServer>()
-        .getNewsFromServer(periodState: Period.day30, path: path);
-  }
-}
 ```
 
 MainApp file
 
 ```dart
 class MainApp extends StatelessWidget {
-  const MainApp({Key? key});
+  const MainApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (BuildContext context) => NewsBloc(),
+          create: (context) => ThemesBloc(),
         ),
         BlocProvider(
-          create
-
-: (BuildContext context) => ThemeBloc(),
+          create: (context) => NewsBloc()..add(ReloadNewsEvent()),
+        ),
+        BlocProvider(
+          create: (context) => NavBlocBloc()..add(ChangeEvent(index: 0)),
+        ),
+        BlocProvider(
+          create: (context) => BookMarkBloc()..add(LoadBookMarkEvent()),
         ),
       ],
-      child: BlocBuilder<ThemeBloc, ThemeState>(builder: (context, state) {
-        return MaterialApp(
-          title: 'My App',
-          theme: state is DarkTheme ? CustomTheme.darkTheme : CustomTheme.lightTheme,
-          home: HomeScreen(),
-          routes: AppPages.routes,
-          debugShowCheckedModeBanner: false,
-        );
-      }),
+      child: BlocBuilder<ThemesBloc, ThemesState>(
+        buildWhen: (_, newState) {
+          return true;
+        },
+        builder: (context, state) {
+          return MaterialApp(
+            darkTheme: ThemeData(
+              brightness: Brightness.dark,
+            ),
+            theme: ThemeData(
+                brightness: Brightness.light,
+                scaffoldBackgroundColor: Color(0xffFFFBFB)),
+            themeMode: getIt.get<ThemeHelper>().isDark
+                ? ThemeMode.dark
+                : ThemeMode.light,
+            initialRoute: '/nav',
+            routes: {
+              "/home": (context) => HomeScreen(),
+              "/display_news": (context) => DisplayNewsScreen(),
+              "/nav": (context) => NavScreen(),
+            },
+          );
+        },
+      ),
     );
   }
 }
@@ -322,111 +308,105 @@ class MainApp extends StatelessWidget {
 ### Test Api 
 ```dart 
 
-import 'package:flutter_test/flutter_test.dart';
-import 'package:get_it/get_it.dart';
-
 void main() {
-  final getIt = GetIt.instance;
-  getIt.registerSingleton<ApiConstants>(ApiConstants());
-
-  group("Test For get All news", () {
-    test('Test get data for 1 day', () async {
-      final newsRepository = ApiServer();
-      final response = await newsRepository.getNewsFromServer(
-        periodState: Period.day1,
-        path: PathApi.shared,
-      );
-      expect(response, isNotNull);
-      expect(response.status, equals("OK"));
+  group('Api test', () {
+    test('readData should return a list of NewsModel', () async {
+      final newsProvider = NewsProvider();
+      final newsList = await newsProvider.readData();
+      expect(newsList, isNotEmpty);
+      expect(newsList, isA<List<NewsModel>>());
     });
   });
-
-  test('Test get data for 7 days', () async {
-    await Future.delayed(const Duration(seconds: 10));
-    final newsRepository = ApiServer();
-    final response = await newsRepository.getNewsFromServer(
-        periodState: Period.day7, path: PathApi.viewed);
-    expect(response, isNotNull);
-    expect(response.status, equals("OK"));
-  });
-
-  test('Test get data for 30 days', () async {
-    await Future.delayed(const Duration(seconds: 10));
-    final newsRepository = ApiServer();
-    final response = await newsRepository.getNewsFromServer(
-        periodState: Period.day30, path: PathApi.emailed);
-    expect(response, isNotNull);
-    expect(response.status, equals("OK"));
-  });
 }
+
 ```
 ### Test Widgets
 ```dart
-
-
-
-void main() {
-  group("Test SegmentedTap widget", () {
-    testWidgets(
-      'SegmentedTap displays correct segments',
-      (WidgetTester tester) async {
-        // Build SegmentedTap with the desired selected period
-        Period selectedPeriod = Period.day7;
-        await tester.pumpWidget(MaterialApp(
-          home: Scaffold(
-            body: ListView(
-              children: [
-                SegmentedTap(
-                  selected: selectedPeriod,
-                  onSelectionChange: (selected) {
-                    selectedPeriod = selected.first;
-                  },
-                ),
-              ],
-            ),
-          ),
-        ));
-        expect(find.text('1 Day'), findsOneWidget);
-        expect(find.text('7 Days'), findsOneWidget);
-        expect(find.text('30 Days'), findsOneWidget);
-        expect(find.byIcon(Icons.segment_outlined), findsOneWidget);
-        await tester.tap(find.text('30 Days'));
-        await tester.pump();
-        expect(selectedPeriod, equals(Period.day30));
-      },
-    );
-    //-----
-    testWidgets('Test MenuDrop widget', (WidgetTester tester) async {
-      String value = 'Emailed';
-
+void main() async {
+  group("Test Widgets ", () {
+    testWidgets('renders CardNews widget', (WidgetTester tester) async {
+      final getIt = GetIt.instance;
+      getIt.registerSingleton<ThemeHelper>(ThemeHelper(isDark: false));
       await tester.pumpWidget(
-        MaterialApp(
-          home: Scaffold(
-            body: MenuDrop(
-              value: value,
-              onChanged: (newValue) {
-                value = newValue!;
-              },
+        BlocProvider(
+          create: (context) => ThemesBloc(),
+          child: MaterialApp(
+              home: Scaffold(
+            body: CardNews(
+              size: 200,
+              objectNews: newsModel,
+              isBookmark: false,
+              onTap: () {},
+              onBookmark: () {},
+              onShear: () {},
             ),
-          ),
+          )),
         ),
       );
 
-      //--------
-      expect(find.text('Emailed'), findsOneWidget);
-      await tester.tap(find.text('Emailed'));
-      await tester.pump();
-      await tester.tap(find.text('Viewed'));
-      await tester.pump();
-      expect(value, equals("Viewed"));
-      //---Step 2
-      expect(find.text('Emailed'), findsOneWidget);
-      await tester.tap(find.text('Emailed'));
-      await tester.pump();
-      await tester.tap(find.text('Shared'));
-      await tester.pump();
-      expect(value, equals("Shared"));
+      expect(find.byType(CardNews), findsOneWidget);
+      expect(
+          find.text(
+              'Getting an IUD Hurts. Why Aren’t More Women Offered Relief?'),
+          findsOneWidget);
     });
+  });
+  testWidgets('renders SegmentLabel widget', (WidgetTester tester) async {
+    // Pump the widget tree
+    await tester.pumpWidget(
+      MaterialApp(
+          home: Scaffold(
+        body: SegmentLabel(
+            currentIndex: 0,
+            items: ["Emailed", "Shearing", "Email"],
+            onTap: (index) {}),
+      )),
+    );
+
+    // Verify: Ensure that the CardNews widget is rendered
+    expect(find.byType(SegmentLabel), findsOneWidget);
+    expect(find.text('Emailed'), findsOneWidget);
+    expect(find.text('Shearing'), findsOneWidget);
+    expect(find.text('Email'), findsOneWidget);
+
+    // Add more assertions as needed
+  });
+  testWidgets('renders CardNews and SegmentLabel widgets',
+      (WidgetTester tester) async {
+    await tester.pumpWidget(
+      BlocProvider(
+        create: (context) => ThemesBloc(),
+        child: MaterialApp(
+            home: Scaffold(
+          body: Column(
+            children: [
+              SegmentLabel(
+                  currentIndex: 0,
+                  items: ["Emailed", "Shearing", "Email"],
+                  onTap: (index) {}),
+              CardNews(
+                size: 200,
+                objectNews: newsModel,
+                isBookmark: false,
+                onTap: () {},
+                onBookmark: () {},
+                onShear: () {},
+              ),
+            ],
+          ),
+        )),
+      ),
+    );
+
+    expect(find.byType(SegmentLabel), findsOneWidget);
+    expect(find.text('Emailed'), findsOneWidget);
+    expect(find.text('Shearing'), findsOneWidget);
+    expect(find.text('Email'), findsOneWidget);
+    expect(find.byType(CardNews), findsOneWidget);
+    expect(
+        find.text(
+            'Getting an IUD Hurts. Why Aren’t More Women Offered Relief?'),
+        findsOneWidget);
   });
 }
 ```

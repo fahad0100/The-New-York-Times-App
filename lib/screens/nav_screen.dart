@@ -1,4 +1,4 @@
-import 'package:assessment2023/Bloc/nav_bloc/nav_bloc_bloc.dart';
+import 'package:assessment2023/Blocs/nav_bloc/nav_bloc_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

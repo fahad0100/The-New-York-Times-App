@@ -1,6 +1,6 @@
-import 'package:assessment2023/Bloc/ThemesBloc/themes_bloc.dart';
-import 'package:assessment2023/Bloc/bookmark/book_mark_bloc.dart';
-import 'package:assessment2023/Bloc/news/news_bloc.dart';
+import 'package:assessment2023/Blocs/ThemesBloc/themes_bloc.dart';
+import 'package:assessment2023/Blocs/bookmark/book_mark_bloc.dart';
+import 'package:assessment2023/Blocs/news/news_bloc.dart';
 import 'package:assessment2023/screens/home/widgets/card_news.dart';
 import 'package:assessment2023/screens/home/widgets/segment_label.dart';
 import 'package:assessment2023/screens/home/widgets/text_label.dart';

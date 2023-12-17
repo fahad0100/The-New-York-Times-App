@@ -1,7 +1,7 @@
-import 'package:assessment2023/Bloc/ThemesBloc/themes_bloc.dart';
-import 'package:assessment2023/Bloc/bookmark/book_mark_bloc.dart';
-import 'package:assessment2023/Bloc/nav_bloc/nav_bloc_bloc.dart';
-import 'package:assessment2023/Bloc/news/news_bloc.dart';
+import 'package:assessment2023/Blocs/ThemesBloc/themes_bloc.dart';
+import 'package:assessment2023/Blocs/bookmark/book_mark_bloc.dart';
+import 'package:assessment2023/Blocs/nav_bloc/nav_bloc_bloc.dart';
+import 'package:assessment2023/Blocs/news/news_bloc.dart';
 import 'package:assessment2023/screens/display_news/display_news.dart';
 import 'package:assessment2023/screens/home/home_screen.dart';
 import 'package:assessment2023/screens/nav_screen.dart';
@@ -51,8 +51,6 @@ class MainApp extends StatelessWidget {
           return MaterialApp(
             darkTheme: ThemeData(
               brightness: Brightness.dark,
-
-              /* dark theme settings */
             ),
             theme: ThemeData(
                 brightness: Brightness.light,

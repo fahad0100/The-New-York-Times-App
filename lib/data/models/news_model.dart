@@ -1,3 +1,4 @@
+
 class NewsModel {
   NewsModel({
     required this.uri,

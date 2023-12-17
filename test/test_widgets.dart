@@ -1,4 +1,4 @@
-import 'package:assessment2023/Bloc/ThemesBloc/themes_bloc.dart';
+import 'package:assessment2023/Blocs/ThemesBloc/themes_bloc.dart';
 import 'package:assessment2023/data/models/news_model.dart';
 import 'package:assessment2023/screens/home/widgets/segment_label.dart';
 import 'package:assessment2023/utils/helper/ThemeHelper.dart';

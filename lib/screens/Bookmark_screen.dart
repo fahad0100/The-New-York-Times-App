@@ -1,4 +1,4 @@
-import 'package:assessment2023/Bloc/bookmark/book_mark_bloc.dart';
+import 'package:assessment2023/Blocs/bookmark/book_mark_bloc.dart';
 import 'package:assessment2023/screens/home/widgets/card_news.dart';
 import 'package:assessment2023/utils/extensions/move_view.dart';
 import 'package:assessment2023/utils/extensions/screen_size.dart';
