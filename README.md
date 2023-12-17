@@ -90,7 +90,7 @@ flutter-app/
 |- test/
 ```
 
-Here is the folder structure used in this project:
+lib folder structure used in this project:
 
 ```
 lib/
