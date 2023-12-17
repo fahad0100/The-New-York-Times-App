@@ -1,74 +1,86 @@
-# The New York Times App
+# The New York Times App Documentation
 
-This is a Flutter application that allows you to read news from The New York Times. It is built using Flutter and utilizes various libraries and tools for state management, API integration, routing, and more.
+The New York Times App is a mobile application developed using the Flutter framework. This application allows users to access and read news articles from The New York Times. It is built with Flutter and incorporates various libraries and tools for efficient state management, API integration, and more.
 
 
 ## Project Demo
 
-Demo app at the following link:
+Explore the demo app by following this:
 
 [Demo App](https://github.com/fahad0100/The-New-York-Times-App/assets/41303127/63ad6d13-70c9-4b38-b799-dba89ee9a06b)
 
 
 ## How to Use
 
-### Step 1:
-Download or clone this repo by using the link below:
+### Step 1: Clone the Repository:
+
+Download or clone the repository using the following command:
+
 ```
 get clone https://github.com/fahad0100/The-New-York-Times-App.git
 ```
 
-### Step 2:
-Go to the folder name The-New-York-Times-App
+### Step 2: Navigate to Project Folder:
+
+Change to the project folder:
+
 ```
 fcd The-New-York-Times-App/
 ```
 
-### Step 3:
-in the project root add .env file:
+### Step 3: Add .env File:
+
+Create a file named .env in the project root.
+
 ```
 .env
 ```
 
-### Step 4:
-add inside .env your api key as
+### Step 4: Add API Key: 
+
+Inside the .env file, add your API key as follows:
+
 ```
 key = "api-key"
 ```
 
-### Step 5:
-execute the following command in the console to get the required dependencies:
+### Step 5: Get Dependencies:
+
+Run the following command in the console to fetch the required dependencies:
+
 ```
 flutter pub get
 ```
 
-### Step 6:
-Run the application using the following command:
+### Step 6: Run the Application:
+
+Launch the application using the following command:
+
 ```
 flutter run
 ```
 
 ## Features
 
-- Nice view
-- Connected with API
-- Bloc state management
-- Dependency Injection
+- User-friendly interface
+- Integration with The New York Times API
+- Implementation of Bloc state management
+- Dependency Injection for enhanced modularity
 - Dark Theme Support
-- Use browser for reading news
-- Unit testing
+- Utilization of a web browser for news reading
+- Unit testing for robust code quality
 
 ## Libraries & Tools Used
 
-- Dio
-- flutter_bloc
-- get_it
-- Bloc (State Management)
-- url_launcher
+- Dio for network requests
+- flutter_bloc for state management
+- get_it for Dependency Injection
+- Bloc for efficient state management
+- url_launcher for launching URLs
 
 ## Folder Structure
 
-Here is the core folder structure which Flutter provides:
+The project follows a structured organization with the main components as follows:
 
 ```
 flutter-app/
@@ -141,19 +153,24 @@ lib/
 |- main.dart
 ```
 
-Now, let's dive into the `lib` folder, which contains the main code for the application.
+Now, let's dive into the `lib` folder, Within the lib directory, the core structure is organized into subdirectories:
 
-- `data`: Contains the data layer of the project, including models, repositories, and API services.
+- `data`: Manages models and providers for data handling.
 
-- `screens`: Contains all the user interface (UI) of the project, with a subdirectory for each screen.
+- `screens`: Includes screen-specific widgets and features.
 
-- `Bloc`: Contains the state management using the `flutter_bloc` library.
+- `Bloc`: Contains Bloc implementations for different features.
 
-- `utils`: Contains utility/common functions of the application.
+- `utils`: Houses utility functions and common functionalities.
 
 
 
-## Extensions for Navigator
+## Extensions
+Extensions have been created for enhanced functionality:
+
+
+### Extensions for Navigator
+Navigation extension for streamlined navigation actions.
 
 ```dart
 extension Nav on BuildContext {
@@ -173,7 +190,8 @@ extension Nav on BuildContext {
 
 ```
 
-## Extension for getting screen size
+### Extension for getting screen size
+Extension to obtain screen dimensions.
 
 ```dart
 extension ScreenSize on BuildContext {
@@ -190,6 +208,8 @@ double  getWidth({double? divide = 1}) {
 
 
 ## News provider
+The NewsProvider class fetches news data from The New York Times API using Dio for efficient network requests. It includes dynamic handling of different API endpoints and periods.
+
 ```dart
 
 class NewsProvider {
@@ -250,8 +270,8 @@ class NewsProvider {
 
 ```
 
-MainApp file
-
+## MainApp file
+The MainApp file sets up the application, incorporating BlocProviders for different features and theming based on user preferences.
 ```dart
 class MainApp extends StatelessWidget {
   const MainApp({super.key});
@@ -304,7 +324,8 @@ class MainApp extends StatelessWidget {
 
 
 # Uinit test 
-
+### Unit Tests
+ Unit tests have been implemented to ensure the functionality of key components. Tests cover API interactions and widget rendering.
 ### Test Api 
 ```dart 
 
